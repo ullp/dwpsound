@@ -3,6 +3,24 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const body = document.body;
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            body.classList.toggle('menu-active');
+        });
+    }
+
+    // Close menu when a link is clicked
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            body.classList.remove('menu-active');
+        });
+    });
+
     // Reveal animation for release items on the index/releases page
     const revealItems = document.querySelectorAll('.release-item, .release-detail');
     revealItems.forEach((item, index) => {
