@@ -29,10 +29,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }, index * 100);
     });
 
-    // Audio Playback Logic
-    const audioItems = document.querySelectorAll('.track-item');
+    // reveal animation logic is above this...
+    
+    // Audio Playback State
     let currentAudio = null;
 
+    // Featured Album Playback (Hero)
+    const featuredAlbum = document.getElementById('featured-album');
+    if (featuredAlbum) {
+        featuredAlbum.addEventListener('click', () => {
+            const audioSrc = featuredAlbum.getAttribute('data-audio');
+            const playIcon = featuredAlbum.querySelector('i');
+            
+            if (currentAudio && currentAudio.src.includes(audioSrc)) {
+                if (currentAudio.paused) {
+                    currentAudio.play();
+                    playIcon.classList.replace('fa-play', 'fa-pause');
+                } else {
+                    currentAudio.pause();
+                    playIcon.classList.replace('fa-pause', 'fa-play');
+                }
+                return;
+            }
+
+            if (currentAudio) {
+                currentAudio.pause();
+                document.querySelectorAll('.playing-track').forEach(el => el.classList.remove('playing-track'));
+                document.querySelectorAll('.play-overlay i').forEach(i => i.classList.replace('fa-pause', 'fa-play'));
+            }
+
+            currentAudio = new Audio(audioSrc);
+            currentAudio.play();
+            playIcon.classList.replace('fa-play', 'fa-pause');
+
+            currentAudio.addEventListener('ended', () => {
+                playIcon.classList.replace('fa-pause', 'fa-play');
+            });
+        });
+    }
+
+    // Audio Playback Logic for lists
+    const audioItems = document.querySelectorAll('.track-item');
     audioItems.forEach(item => {
         item.addEventListener('click', () => {
             const trackName = item.querySelector('span').innerText.trim();
