@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Releases – DWP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="overflow: hidden;">
+    <header>
+        <div class="logo">DWP</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="releases.html" class="active">Releases</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="releases-wrapper">
+            <!-- 01: Spirography [Vinyl] -->
+            <a href="spirography-vinyl.html" class="release-item">
+                <div class="release-artwork">
+                    <img src="assets/spirography_vinyl.png" alt="Spirography [Vinyl]">
+                </div>
+                <div class="release-info">
+                    <span class="release-number">01 / RELEASE</span>
+                    <h3 class="release-title">Spirography [Vinyl]</h3>
+                    <p class="release-desc">The original vinyl release. 4 core tracks that defined the project's foundation.</p>
+                </div>
+            </a>
+
+            <!-- 02: Spirography [Digi] -->
+            <a href="spirography-digi.html" class="release-item">
+                <div class="release-artwork">
+                    <img src="assets/spirography_digi.png" alt="Spirography [Digi]">
+                </div>
+                <div class="release-info">
+                    <span class="release-number">02 / RELEASE</span>
+                    <h3 class="release-title">Spirography [Digi]</h3>
+                    <p class="release-desc">Digital-only session tracks with an atmospheric ambient mood.</p>
+                </div>
+            </a>
+
+            <!-- 03: Spirography [All Tracks] -->
+            <a href="spirography-all.html" class="release-item">
+                <div class="release-artwork">
+                    <img src="assets/spirography_all.png" alt="Spirography [All Tracks]">
+                </div>
+                <div class="release-info">
+                    <span class="release-number">03 / RELEASE</span>
+                    <h3 class="release-title">Spirography [All]</h3>
+                    <p class="release-desc">The complete 12-track anthology representing the full era.</p>
+                </div>
+            </a>
+
+            <!-- 04: Hundred Forty Eight -->
+            <a href="hundred-forty-eight.html" class="release-item">
+                <div class="release-artwork">
+                    <img src="assets/hundred_forty_eight.png" alt="Hundred Forty Eight">
+                </div>
+                <div class="release-info">
+                    <span class="release-number">04 / RELEASE</span>
+                    <h3 class="release-title">Hundred Forty Eight</h3>
+                    <p class="release-desc">2nd piece created after Spirography. Revealed in waves.</p>
+                </div>
+            </a>
+
+            <!-- 05: Crystal Beats -->
+            <a href="crystal-beats.html" class="release-item">
+                <div class="release-artwork">
+                    <img src="assets/crystal_beats.png" alt="Crystal Beats">
+                </div>
+                <div class="release-info">
+                    <span class="release-number">05 / RELEASE</span>
+                    <h3 class="release-title">Crystal Beats</h3>
+                    <p class="release-desc">14 tracks divided into three parts. Pulse riffs and rhythmic atmosphere.</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <span>Scroll to explore</span>
+        </div>
+        <div class="copy">&copy; Copyright 2024 DWP</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.release-item');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 200);
+            });
+
+            // Enabling horizontal scroll with mouse wheel
+            const wrapper = document.querySelector('.releases-wrapper');
+            wrapper.addEventListener('wheel', (evt) => {
+                evt.preventDefault();
+                wrapper.scrollLeft += evt.deltaY;
+            });
+        });
+    </script>
+</body>
+</html>
