@@ -259,7 +259,7 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .featured-title {
-    margin-top: 30px;
+    margin-bottom: 30px;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 5px;
@@ -277,7 +277,8 @@ nav ul li a:hover, nav ul li a.active {
 .hero h2 {
     font-size: 1rem;
     color: var(--accent-color);
-    margin-bottom: 20px;
+    margin-top: 30px;
+    letter-spacing: 2px;
 }
 
 .social-links {
@@ -555,10 +556,22 @@ footer {
     z-index: 100;
 }
 
-.footer-left {
+.footer-links {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    gap: 30px;
+}
+
+.footer-links a {
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--font-mono);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
 }
 
 .copy {
