@@ -471,6 +471,40 @@ nav ul li a:hover, nav ul li a.active {
     margin-top: 0;
 }
 
+/* 2-column layout for Part I & II */
+.parts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: 60px auto 0;
+    padding: 0 20px;
+}
+
+/* Centred single-column for Outro */
+.parts-outro {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 60px;
+    padding: 0 20px;
+}
+
+.parts-outro .part-col {
+    width: 100%;
+    max-width: 400px;
+}
+
+.part-col .part-header {
+    margin-top: 0;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 700px) {
+    .parts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .story-section {
     margin-top: 40px;
     border-top: 1px solid var(--glass-border);
