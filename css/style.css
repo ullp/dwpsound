@@ -334,28 +334,17 @@ nav ul li a:hover, nav ul li a.active {
     transform: translateY(-5px);
 }
 
-/* Horizontal Releases Layout */
+/* Grid Releases Layout */
 .releases-wrapper {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    padding: 0 10vw;
-    scrollbar-width: none; /* Firefox */
-}
-
-.releases-wrapper::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 120px 40px 100px;
 }
 
 .release-item {
-    flex: 0 0 400px;
-    height: auto;
-    margin-right: 60px;
-    scroll-snap-align: center;
     position: relative;
     opacity: 0;
     transform: translateY(50px);
@@ -368,8 +357,8 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .release-artwork {
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
@@ -815,15 +804,9 @@ footer {
         letter-spacing: 5px;
     }
 
-    .artwork-container {
-        width: 300px;
-        height: 300px;
-    }
-    .release-item {
-        flex: 0 0 300px;
-    }
-    .release-artwork {
-        width: 300px;
-        height: 300px;
+    .releases-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        padding: 100px 20px 80px;
     }
 }

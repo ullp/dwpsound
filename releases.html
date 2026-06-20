@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body style="overflow: hidden;">
+<body>
     <header>
         <a href="index.html" class="logo">DWP</a>
         <div class="menu-toggle"><span></span><span></span><span></span></div>
@@ -101,13 +101,6 @@
                 setTimeout(() => {
                     item.classList.add('visible');
                 }, index * 200);
-            });
-
-            // Enabling horizontal scroll with mouse wheel
-            const wrapper = document.querySelector('.releases-wrapper');
-            wrapper.addEventListener('wheel', (evt) => {
-                evt.preventDefault();
-                wrapper.scrollLeft += evt.deltaY;
             });
         });
     </script>
