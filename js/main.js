@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Reveal animation for release items on the index/releases page
+    // Reveal animation
     const revealItems = document.querySelectorAll('.release-item, .release-detail');
     revealItems.forEach((item, index) => {
         setTimeout(() => {
@@ -29,42 +29,85 @@ document.addEventListener('DOMContentLoaded', () => {
         }, index * 100);
     });
 
-    // reveal animation logic is above this...
-    
     // Audio Playback State
     let currentAudio = null;
+    let activeTrackItem = null;
 
-    // Featured Album Playback (Hero)
-    const featuredAlbum = document.getElementById('featured-album');
-    if (featuredAlbum) {
-        featuredAlbum.addEventListener('click', () => {
-            const audioSrc = featuredAlbum.getAttribute('data-audio');
-            const playIcon = featuredAlbum.querySelector('i');
-            
-            if (currentAudio && currentAudio.src.includes(audioSrc)) {
-                if (currentAudio.paused) {
-                    currentAudio.play();
-                    playIcon.classList.replace('fa-play', 'fa-pause');
-                } else {
-                    currentAudio.pause();
-                    playIcon.classList.replace('fa-pause', 'fa-play');
-                }
-                return;
-            }
+    function createPlayerTemplate() {
+        const div = document.createElement('div');
+        div.className = 'inline-player';
+        div.innerHTML = `
+            <div class="player-content">
+                <span id="track-title"></span>
+                <input type="range" id="seek-bar" value="0" step="0.1" style="width: 100%;">
+                <button id="play-pause-btn">Play</button>
+            </div>
+        `;
+        return div;
+    }
 
-            if (currentAudio) {
+    function playTrack(src, title, element) {
+        if (currentAudio && currentAudio.src.includes(src)) {
+            if (currentAudio.paused) {
+                currentAudio.play();
+                document.getElementById('play-pause-btn').innerText = 'Pause';
+                element.classList.add('playing-track');
+            } else {
                 currentAudio.pause();
-                document.querySelectorAll('.playing-track').forEach(el => el.classList.remove('playing-track'));
-                document.querySelectorAll('.play-overlay i').forEach(i => i.classList.replace('fa-pause', 'fa-play'));
+                document.getElementById('play-pause-btn').innerText = 'Play';
+                element.classList.remove('playing-track');
             }
+            return;
+        }
 
-            currentAudio = new Audio(audioSrc);
-            currentAudio.play();
-            playIcon.classList.replace('fa-play', 'fa-pause');
+        if (currentAudio) {
+            currentAudio.pause();
+            document.querySelectorAll('.playing-track').forEach(el => el.classList.remove('playing-track'));
+            const oldPlayer = document.querySelector('.inline-player');
+            if (oldPlayer) oldPlayer.remove();
+        }
 
-            currentAudio.addEventListener('ended', () => {
-                playIcon.classList.replace('fa-pause', 'fa-play');
-            });
+        activeTrackItem = element;
+        const player = createPlayerTemplate();
+        element.parentNode.insertBefore(player, element.nextSibling);
+
+        const seekBar = player.querySelector('#seek-bar');
+        const playPauseBtn = player.querySelector('#play-pause-btn');
+        const trackTitleDisplay = player.querySelector('#track-title');
+
+        trackTitleDisplay.innerText = title;
+        currentAudio = new Audio(src);
+        currentAudio.play();
+        playPauseBtn.innerText = 'Pause';
+        element.classList.add('playing-track');
+
+        currentAudio.addEventListener('loadedmetadata', () => {
+            seekBar.max = currentAudio.duration;
+        });
+
+        currentAudio.addEventListener('timeupdate', () => {
+            seekBar.value = currentAudio.currentTime;
+        });
+
+        currentAudio.addEventListener('ended', () => {
+            element.classList.remove('playing-track');
+            playPauseBtn.innerText = 'Play';
+            seekBar.value = 0;
+            player.remove();
+        });
+
+        playPauseBtn.addEventListener('click', () => {
+            if (currentAudio.paused) {
+                currentAudio.play();
+                playPauseBtn.innerText = 'Pause';
+            } else {
+                currentAudio.pause();
+                playPauseBtn.innerText = 'Play';
+            }
+        });
+
+        seekBar.addEventListener('input', () => {
+            currentAudio.currentTime = seekBar.value;
         });
     }
 
@@ -75,37 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const trackName = item.querySelector('span').innerText.trim();
             const audioSrc = item.getAttribute('data-audio');
 
-            if (!audioSrc) {
-                console.warn(`No audio source defined for: ${trackName}`);
-                return;
-            }
+            if (!audioSrc) return;
 
-            // If clicking the same track that is currently playing - toggle play/pause
-            if (currentAudio && currentAudio.src.includes(audioSrc)) {
-                if (currentAudio.paused) {
-                    currentAudio.play();
-                    item.classList.add('playing-track');
-                } else {
-                    currentAudio.pause();
-                    item.classList.remove('playing-track');
-                }
-                return;
-            }
-
-            // Stop previous audio
-            if (currentAudio) {
-                currentAudio.pause();
-                document.querySelectorAll('.playing-track').forEach(el => el.classList.remove('playing-track'));
-            }
-
-            // Initialize new audio
-            currentAudio = new Audio(audioSrc);
-            currentAudio.play();
-            item.classList.add('playing-track');
-
-            currentAudio.addEventListener('ended', () => {
-                item.classList.remove('playing-track');
-            });
+            playTrack(audioSrc, trackName, item);
         });
     });
 });
