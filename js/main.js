@@ -46,23 +46,36 @@ document.addEventListener('DOMContentLoaded', () => {
         return div;
     }
 
+    function setPlayOverlayIcon(element, playing) {
+        const overlayIcon = element.querySelector('.play-overlay i');
+        if (overlayIcon) {
+            overlayIcon.classList.toggle('fa-play', !playing);
+            overlayIcon.classList.toggle('fa-pause', playing);
+        }
+    }
+
     function playTrack(src, title, element) {
         if (currentAudio && currentAudio.src.includes(src)) {
             if (currentAudio.paused) {
                 currentAudio.play();
                 document.getElementById('play-pause-btn').innerText = 'Pause';
                 element.classList.add('playing-track');
+                setPlayOverlayIcon(element, true);
             } else {
                 currentAudio.pause();
                 document.getElementById('play-pause-btn').innerText = 'Play';
                 element.classList.remove('playing-track');
+                setPlayOverlayIcon(element, false);
             }
             return;
         }
 
         if (currentAudio) {
             currentAudio.pause();
-            document.querySelectorAll('.playing-track').forEach(el => el.classList.remove('playing-track'));
+            document.querySelectorAll('.playing-track').forEach(el => {
+                el.classList.remove('playing-track');
+                setPlayOverlayIcon(el, false);
+            });
             const oldPlayer = document.querySelector('.inline-player');
             if (oldPlayer) oldPlayer.remove();
         }
@@ -80,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentAudio.play();
         playPauseBtn.innerText = 'Pause';
         element.classList.add('playing-track');
+        setPlayOverlayIcon(element, true);
 
         currentAudio.addEventListener('loadedmetadata', () => {
             seekBar.max = currentAudio.duration;
@@ -91,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         currentAudio.addEventListener('ended', () => {
             element.classList.remove('playing-track');
+            setPlayOverlayIcon(element, false);
             playPauseBtn.innerText = 'Play';
             seekBar.value = 0;
             player.remove();
@@ -100,9 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentAudio.paused) {
                 currentAudio.play();
                 playPauseBtn.innerText = 'Pause';
+                setPlayOverlayIcon(element, true);
             } else {
                 currentAudio.pause();
                 playPauseBtn.innerText = 'Play';
+                setPlayOverlayIcon(element, false);
             }
         });
 
@@ -123,4 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
             playTrack(audioSrc, trackName, item);
         });
     });
+
+    // Audio Playback Logic for the featured album on the home page (plays the 1st track)
+    const featuredAlbum = document.getElementById('featured-album');
+    if (featuredAlbum) {
+        const featuredAudioSrc = featuredAlbum.getAttribute('data-audio');
+        const featuredTrackTitle = featuredAlbum.getAttribute('data-title');
+
+        if (featuredAudioSrc) {
+            featuredAlbum.addEventListener('click', () => {
+                playTrack(featuredAudioSrc, featuredTrackTitle || 'Crystal Beats (Prelude)', featuredAlbum);
+            });
+        }
+    }
 });
