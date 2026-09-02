@@ -886,3 +886,320 @@ footer {
         padding: 15px 0;
     }
 }
+
+/* ===== Sessions Page ===== */
+.collab-banner {
+    position: relative;
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.17, 0.96, 0.33, 0.99);
+}
+
+.collab-banner.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.collab-banner > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.collab-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(13, 13, 13, 0.55), rgba(13, 13, 13, 0.85));
+    z-index: 1;
+}
+
+.collab-content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    padding: 60px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.collab-role {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.collab-title {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.collab-desc {
+    color: var(--secondary-text);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.collab-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Upcoming event card */
+.upcoming-card {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    background: var(--glass-bg);
+    border: 1px solid rgba(0, 242, 255, 0.35);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 4px;
+    padding: 30px 40px;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.17, 0.96, 0.33, 0.99);
+}
+
+.upcoming-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.upcoming-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 92px;
+    padding: 15px 18px;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    background: rgba(0, 242, 255, 0.06);
+}
+
+.upcoming-date .date-day {
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--accent-color);
+}
+
+.upcoming-date .date-month {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+    color: var(--text-color);
+}
+
+.upcoming-info {
+    flex: 1;
+    min-width: 220px;
+}
+
+.upcoming-title {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+.upcoming-card:hover .upcoming-title {
+    color: var(--accent-color);
+}
+
+.upcoming-info .venue-note {
+    margin-bottom: 0;
+}
+
+.session-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 12px 22px;
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.session-link i {
+    color: var(--accent-color);
+}
+
+.session-link:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Venue zigzag list */
+.venue-list {
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+    padding-bottom: 20px;
+}
+
+.venue-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.17, 0.96, 0.33, 0.99);
+}
+
+.venue-row.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.venue-row.flip .venue-media {
+    order: 2;
+}
+
+.venue-row.flip .venue-info {
+    order: 1;
+}
+
+.venue-media {
+    display: block;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.venue-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.venue-media:hover img {
+    transform: scale(1.03);
+}
+
+.venue-info {
+    text-align: left;
+}
+
+.venue-number {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.venue-name {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.venue-row:hover .venue-name {
+    color: var(--accent-color);
+}
+
+.venue-note {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+    margin-bottom: 20px;
+}
+
+.venue-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.venue-link i {
+    opacity: 0.7;
+}
+
+.venue-link:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Sessions on tablets and phones */
+@media (max-width: 800px) {
+    .venue-row {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .venue-row.flip .venue-media {
+        order: -1;
+    }
+
+    .venue-row.flip .venue-info {
+        order: 0;
+    }
+
+    .collab-banner {
+        min-height: 380px;
+    }
+
+    .collab-title {
+        font-size: 1.6rem;
+    }
+
+    .upcoming-card {
+        padding: 25px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .venue-list {
+        gap: 60px;
+    }
+}
