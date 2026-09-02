@@ -908,7 +908,8 @@ footer {
     transform: translateY(0);
 }
 
-.collab-banner > img {
+.collab-banner > img,
+.collab-banner > video {
     position: absolute;
     top: 0;
     left: 0;
@@ -916,6 +917,13 @@ footer {
     height: 100%;
     object-fit: cover;
     z-index: 0;
+}
+
+/* Respect reduced motion: fall back to the static artwork */
+@media (prefers-reduced-motion: reduce) {
+    .collab-banner > video {
+        display: none;
+    }
 }
 
 .collab-overlay {
