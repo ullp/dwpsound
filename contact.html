@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact – DWP</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Inconsolata:wght@300;400;600&family=Outfit:wght@300;500;700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Inconsolata:wght@300;400;600&family=Outfit:wght@300;400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body class="contact-page">
-    <header>
+        <header>
         <a href="index.html" class="logo">DWP</a>
-        <div class="menu-toggle"><span></span><span></span><span></span></div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -25,23 +26,42 @@
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <button class="bg-player" id="header-bg-player" aria-label="Play Featured Track" title="Play Crystal Beats">
+                <span class="bg-player__eq">
+                    <span class="eq-bar eq-bar1"></span>
+                    <span class="eq-bar eq-bar2"></span>
+                    <span class="eq-bar eq-bar3"></span>
+                    <span class="eq-bar eq-bar4"></span>
+                    <span class="eq-bar eq-bar5"></span>
+                </span>
+            </button>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+        </div>
     </header>
 
     <main class="container">
         <div class="contact-split">
             <div class="contact-left">
-                <h1>Contact</h1>
+                <h1 class="text-gradient">Let's connect</h1>
                 <form class="contact-form">
-                    <textarea placeholder="Tell us everything..."></textarea>
+                    <div class="form-group">
+                        <textarea id="message" placeholder=" " spellcheck="true"></textarea>
+                        <label for="message">Tell us everything...</label>
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name">
+                            <input type="text" id="name" placeholder=" ">
+                            <label for="name">Your Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email Address">
+                            <input type="email" id="email" placeholder=" ">
+                            <label for="email">Email Address</label>
                         </div>
                     </div>
-                    <button type="submit" class="submit-btn" onclick="return false;">Send Message</button>
+                    <button type="submit" class="submit-btn" onclick="return false;">
+                        <span>Send Message</span>
+                    </button>
                 </form>
             </div>
 
@@ -77,11 +97,28 @@
                         <p>Kittsee, 2421, Austria</p>
                     </div>
                 </div>
+
+                <div class="info-category">
+                    <span class="info-label">Social</span>
+                    <div class="info-content">
+                        <div class="social-links" style="justify-content: flex-start; padding: 0;">
+                            <a href="https://www.maileibel.com/dwp/" target="_blank" class="social-link" aria-label="MaiLeiBel">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="https://www.facebook.com/maileibel" target="_blank" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/maileibel" target="_blank" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
-    <footer style="background: transparent;">
+    <footer id="main-footer" style="background: transparent;">
         <div class="copy">&copy; Copyright 2026 DWP</div>
     </footer>
 

@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spirography [Digi] – DWP</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <header>
+        <header>
         <a href="index.html" class="logo">DWP</a>
-        <div class="menu-toggle"><span></span><span></span><span></span></div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -23,14 +24,26 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <button class="bg-player" id="header-bg-player" aria-label="Play Featured Track" title="Play Crystal Beats">
+                <span class="bg-player__eq">
+                    <span class="eq-bar eq-bar1"></span>
+                    <span class="eq-bar eq-bar2"></span>
+                    <span class="eq-bar eq-bar3"></span>
+                    <span class="eq-bar eq-bar4"></span>
+                    <span class="eq-bar eq-bar5"></span>
+                </span>
+            </button>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+        </div>
     </header>
 
     <main class="container">
         <section class="release-detail">
             <div class="detail-header">
                 <div class="detail-info">
-                    <span class="label">Release #02 &nbsp; | &nbsp; Debut Vinyl 2021-2022</span>
-                    <h1>Spirography</h1>
+                    <span class="label">Release #02 &nbsp; | &nbsp; Debut Vinyl 2021–2022</span>
+                    <h1 class="text-gradient">Spirography</h1>
                     <span class="subtitle">[ Digi ]</span>
 
                     <div class="story-section">
@@ -40,12 +53,12 @@
                             stories about thoughts going thru our minds when our souls are on such a journey. Everything
                             is relative, but so real and only possible can happen if we do something about it. The space
                             between thoughts and real do is filled with feelings which makes us wonder about if it has
-                            it’s meaning and what if we do nothing what happens to us or the world we live in.</p>
+                            it's meaning and what if we do nothing what happens to us or the world we live in.</p>
 
                         <p class="story-text">Creating and listening to songs is sound therapy and I hope that every one
                             of us has believed in the joy we live which we want and like to share with anyone or at
                             least someone who deserves to affect the meaning of life although so many things happening
-                            which can’t be changed or people don’t want to make the change.</p>
+                            which can't be changed or people don't want to make the change.</p>
 
                         <p class="story-text">I hope you will enjoy this sound journey with each not just the title of
                             the songs, but mostly with the sounds that make an emotional impact.</p>
@@ -58,22 +71,23 @@
 
             <div class="release-cta">
                 <a href="https://www.maileibel.com/dwp/" target="_blank" class="cta-link">MaiLeiBel</a>
-                <a href="https://www.maileibel.com/product/dwp-spirography/" target="_blank"
-                    class="cta-link cta-primary">Get Vinyl version</a>
+                <a href="https://www.maileibel.com/product/dwp-spirography/" target="_blank" class="cta-primary">
+                    <span>Get Vinyl version</span>
+                </a>
             </div>
 
             <div class="track-list">
+                <div class="part-header">Tracklist</div>
                 <div class="track-item" data-audio="audio/vinyl/01-Light-Studio.mp3"><span>Light</span></div>
                 <div class="track-item" data-audio="audio/vinyl/09-LateRooms.mp3"><span>Late Rooms</span></div>
                 <div class="track-item" data-audio="audio/vinyl/03-ThinkTwice-Studio.mp3"><span>Think Twice</span></div>
                 <div class="track-item" data-audio="audio/vinyl/04-BlendInAndOut-Studio.mp3"><span>Blend In And
-                        Out</span>
-                </div>
+                        Out</span></div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer id="main-footer">
         <div class="copy">&copy; Copyright 2026 DWP</div>
     </footer>
 

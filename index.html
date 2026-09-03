@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DWP – Spirography sound universe</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="home-page">
     <header>
         <a href="index.html" class="logo">DWP</a>
         <nav>
@@ -23,31 +24,77 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <div class="menu-toggle"><span></span><span></span><span></span></div>
+        <div class="header-actions">
+            <button class="bg-player" id="header-bg-player" aria-label="Play Featured Track" title="Play Crystal Beats">
+                <span class="bg-player__eq">
+                    <span class="eq-bar eq-bar1"></span>
+                    <span class="eq-bar eq-bar2"></span>
+                    <span class="eq-bar eq-bar3"></span>
+                    <span class="eq-bar eq-bar4"></span>
+                    <span class="eq-bar eq-bar5"></span>
+                </span>
+            </button>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+        </div>
     </header>
 
     <main>
         <section class="hero">
             <div class="hero-bg">
                 <div class="hero-glow"></div>
-                <div class="hero-shapes">
-                    <div class="shape"></div>
-                    <div class="shape"></div>
-                    <div class="shape"></div>
+            </div>
+
+            <!-- Angio Magic Wave Physics Canvas -->
+            <canvas id="magic-wave" data-col1="rgba(0, 243, 255, 0.2)" data-col2="rgba(19, 119, 106, 0.42)" data-col3="rgba(5, 5, 10, 0.85)"></canvas>
+
+            <!-- Featured album — static content over the animated wave background -->
+            <div class="wave-album">
+                <div class="wave-move-this">
+                    <div class="hero-kicker">
+                        <span></span>
+                        <em>featured release</em>
+                        <span></span>
+                    </div>
+
+                    <!-- Featured artwork -->
+                    <div class="gthumb" id="featured-album" data-audio="audio/crystal/01-CrystalBeats.mp3" data-title="Crystal Beats (Prelude)" title="Click to play">
+                        <div class="gthumb__images">
+                            <div class="gthumb__img" style="background-image: url('assets/crystal_beats.png');"></div>
+                        </div>
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+
+                    <!-- Console Typer / AutoType Subtitle -->
+                    <div class="wave-album__desc">
+                        <h2 class="wave-album__text autotype" data-text="New album out now — distorted crystalline rhythm studies">New album out now</h2>
+                    </div>
+
+                    <!-- Action & Streaming Buttons -->
+                    <div class="wave-album__buttons">
+                        <a href="crystal-beats.html" class="wave-btn wave-btn--primary" title="Open Release">
+                            <i class="fas fa-play"></i><span>Listen</span>
+                        </a>
+                        <a href="https://www.maileibel.com/dwp/" target="_blank" rel="noopener" class="wave-btn" title="MaiLeiBel Label">
+                            <i class="fas fa-globe"></i><span>Label</span>
+                        </a>
+                        <a href="https://www.maileibel.com/product/dwp-spirography/" target="_blank" rel="noopener" class="wave-btn" title="Get Vinyl">
+                            <i class="fas fa-record-vinyl"></i><span>Vinyl</span>
+                        </a>
+                        <a href="https://www.facebook.com/maileibel" target="_blank" rel="noopener" class="wave-btn wave-btn--icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/maileibel" target="_blank" rel="noopener" class="wave-btn wave-btn--icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <a href="crystal-beats.html" class="featured-title">Crystal Beats</a>
-            <div class="artwork-container" id="featured-album" data-audio="audio/crystal/01-CrystalBeats.mp3" data-title="Crystal Beats (Prelude)">
-                <img src="assets/crystal_beats.png" alt="Crystal Beats">
-                <div class="play-overlay">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
-            <h2>New album out now</h2>
         </section>
     </main>
 
-    <footer>
+    <footer id="main-footer">
         <div class="footer-links">
             <a href="https://www.maileibel.com/dwp/" target="_blank">MaiLeiBel</a>
             <a href="https://www.maileibel.com/product/dwp-spirography/" target="_blank">Get Vinyl version</a>

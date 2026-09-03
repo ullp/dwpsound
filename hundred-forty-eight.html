@@ -5,32 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hundred Forty Eight – DWP</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .track-list {
-            margin-top: 40px;
-            text-align: left;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .track-item {
-            padding: 15px 0;
-            border-bottom: 1px solid var(--glass-border);
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <header>
+        <header>
         <a href="index.html" class="logo">DWP</a>
-        <div class="menu-toggle"><span></span><span></span><span></span></div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -39,28 +24,40 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <button class="bg-player" id="header-bg-player" aria-label="Play Featured Track" title="Play Crystal Beats">
+                <span class="bg-player__eq">
+                    <span class="eq-bar eq-bar1"></span>
+                    <span class="eq-bar eq-bar2"></span>
+                    <span class="eq-bar eq-bar3"></span>
+                    <span class="eq-bar eq-bar4"></span>
+                    <span class="eq-bar eq-bar5"></span>
+                </span>
+            </button>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+        </div>
     </header>
 
     <main class="container">
         <section class="release-detail">
             <div class="detail-header">
                 <div class="detail-info">
-                    <span class="label">Release #04 &nbsp; | &nbsp; 2022-2023</span>
-                    <h1>Hundred Forty Eight</h1>
+                    <span class="label">Release #04 &nbsp; | &nbsp; 2022–2023</span>
+                    <h1 class="text-gradient">Hundred Forty Eight</h1>
                     <span class="subtitle">Lundon LP</span>
 
                     <div class="story-section">
                         <h3 class="story-header">About the release</h3>
-                        <p class="story-text">I’m very happy to announce the 2nd piece of a sound collection which
+                        <p class="story-text">I'm very happy to announce the 2nd piece of a sound collection which
                             revealed to be a new album this year. There are tracks that were created right after the 1st
                             album Spirography with its own sound link and story. But those tracks are different and have
                             found their own place in this new album. The Hundert Forty Eight tracks are different and
-                            have their own sound mood and feel. Each track’s beats are revealed in waves and with its
+                            have their own sound mood and feel. Each track's beats are revealed in waves and with its
                             characteristic rhythm logic.</p>
 
                         <p class="story-text">Each part of the album has a different intro and outro because the way of
                             putting sounds together has changed. From FlipSide to Keep is 1st part. From Converse to
-                            Don’t Look Back is 2nd part and 3rd part is made from the last two tracks as a chilling
+                            Don't Look Back is 2nd part and 3rd part is made from the last two tracks as a chilling
                             outro from this Hunderd Forty Eight LP.</p>
                     </div>
                 </div>
@@ -97,7 +94,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer id="main-footer">
         <div class="copy">&copy; Copyright 2026 DWP</div>
     </footer>
 

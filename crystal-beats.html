@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crystal Beats – DWP</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <header>
+        <header>
         <a href="index.html" class="logo">DWP</a>
-        <div class="menu-toggle"><span></span><span></span><span></span></div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -23,19 +24,31 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <button class="bg-player" id="header-bg-player" aria-label="Play Featured Track" title="Play Crystal Beats">
+                <span class="bg-player__eq">
+                    <span class="eq-bar eq-bar1"></span>
+                    <span class="eq-bar eq-bar2"></span>
+                    <span class="eq-bar eq-bar3"></span>
+                    <span class="eq-bar eq-bar4"></span>
+                    <span class="eq-bar eq-bar5"></span>
+                </span>
+            </button>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+        </div>
     </header>
 
     <main class="container">
         <section class="release-detail">
             <div class="detail-header">
                 <div class="detail-info">
-                    <span class="label">Release #05 &nbsp; | &nbsp; 2023-2025</span>
-                    <h1>Crystal Beats</h1>
+                    <span class="label">Release #05 &nbsp; | &nbsp; 2023–2025</span>
+                    <h1 class="text-gradient">Crystal Beats</h1>
                     <span class="subtitle">Sound Puzzle LP</span>
 
                     <div class="story-section">
                         <h3 class="story-header">About the release</h3>
-                        <p class="story-text">Another jigsaw puzzle full of sounds and beats. The album’s title is based
+                        <p class="story-text">Another jigsaw puzzle full of sounds and beats. The album's title is based
                             on more used sounds of beating or pulsing riffs with a rhythmic atmosphere.</p>
                         <p class="story-text">With 14 tracks divided into three parts of this album brings themes which
                             stands for different ways of how music can be structured from sounds with natural rif, but
@@ -96,7 +109,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer id="main-footer">
         <div class="copy">&copy; Copyright 2026 DWP</div>
     </footer>
 

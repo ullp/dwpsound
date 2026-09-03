@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spirography – DWP</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <header>
+        <header>
         <a href="index.html" class="logo">DWP</a>
-        <div class="menu-toggle"><span></span><span></span><span></span></div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -23,34 +24,47 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <button class="bg-player" id="header-bg-player" aria-label="Play Featured Track" title="Play Crystal Beats">
+                <span class="bg-player__eq">
+                    <span class="eq-bar eq-bar1"></span>
+                    <span class="eq-bar eq-bar2"></span>
+                    <span class="eq-bar eq-bar3"></span>
+                    <span class="eq-bar eq-bar4"></span>
+                    <span class="eq-bar eq-bar5"></span>
+                </span>
+            </button>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+        </div>
     </header>
 
     <main class="container">
         <section class="release-detail">
             <div class="detail-header">
                 <div class="detail-info">
-                    <span class="label">Release #01</span>
-                    <h1>Spirography</h1>
+                    <span class="label">Release #01 / #02 / #03</span>
+                    <h1 class="text-gradient">Spirography</h1>
                     <p class="description">The foundational collection. Features the original vinyl release, digital
-                        tracks, and the complete 12-track anthology.</p>
+                        session tracks, and the complete 12-track anthology.</p>
                 </div>
                 <div class="artwork-container">
                     <img src="assets/spirography.png" alt="Spirography">
                 </div>
             </div>
 
+            <div class="release-cta">
+                <a href="https://www.maileibel.com/dwp/" target="_blank" class="cta-link">MaiLeiBel</a>
+                <a href="https://www.maileibel.com/product/dwp-spirography/" target="_blank" class="cta-primary">
+                    <span>Get Vinyl version</span>
+                </a>
+            </div>
+
             <div class="tracklist-section">
                 <h2 class="section-title">Versions</h2>
 
                 <!-- Version 1: Vinyl -->
-                <div class="release-cta">
-                    <a href="https://www.maileibel.com/dwp/" target="_blank" class="cta-link">MaiLeiBel</a>
-                    <a href="https://www.maileibel.com/product/dwp-spirography/" target="_blank" class="cta-link cta-primary">Get Vinyl version</a>
-                </div>
-
-                <div class="version-block" style="margin-bottom: 60px;">
-                    <h3 style="color: var(--accent-color); font-family: var(--font-mono); margin-bottom: 20px;">[
-                        Version 1 ] Vinyl Release</h3>
+                <div class="version-block">
+                    <h3 class="version-header"><span class="version-num">01</span> Vinyl Release</h3>
                     <ul class="tracklist">
                         <li class="track-item"><span class="track-num">01</span> Light</li>
                         <li class="track-item"><span class="track-num">02</span> Late Rooms</li>
@@ -60,9 +74,8 @@
                 </div>
 
                 <!-- Version 2: Digi -->
-                <div class="version-block" style="margin-bottom: 60px;">
-                    <h3 style="color: var(--accent-color); font-family: var(--font-mono); margin-bottom: 20px;">[
-                        Version 2 ] Digi Tracks</h3>
+                <div class="version-block">
+                    <h3 class="version-header"><span class="version-num">02</span> Digi Tracks</h3>
                     <ul class="tracklist">
                         <li class="track-item"><span class="track-num">01</span> Light</li>
                         <li class="track-item"><span class="track-num">02</span> Think Twice</li>
@@ -73,8 +86,7 @@
 
                 <!-- Version 3: All Tracks -->
                 <div class="version-block">
-                    <h3 style="color: var(--accent-color); font-family: var(--font-mono); margin-bottom: 20px;">[
-                        Version 3 ] All 12 Tracks</h3>
+                    <h3 class="version-header"><span class="version-num">03</span> All 12 Tracks</h3>
                     <ul class="tracklist">
                         <li class="track-item"><span class="track-num">01</span> Light</li>
                         <li class="track-item"><span class="track-num">02</span> Trigger Forward</li>
@@ -94,7 +106,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer id="main-footer">
         <div class="copy">&copy; Copyright 2026 DWP</div>
     </footer>
 

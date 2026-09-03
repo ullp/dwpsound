@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DWP favicon">
+  <defs>
+    <linearGradient id="dwp-gradient" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00f3ff"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <filter id="glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="1.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#05050a"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="url(#dwp-gradient)" stroke-width="2.5" opacity="0.75"/>
+  <path d="M12 46V18h9.5C30 18 35 23.5 35 32s-5 14-13.5 14H12Zm7-6h2.1c4.6 0 7-3 7-8s-2.4-8-7-8H19v16Zm17-22h6l3.2 14.8L49 18h5.8l-6.3 28h-6.1l-3.2-14-3.4 14h-6.1l-1.6-7.2c1.9-1.6 3.1-4 3.6-6.8l1.3 6.8L36 18Z" fill="url(#dwp-gradient)" filter="url(#glow)"/>
+  <path d="M47 32h2.2c2.2 0 3.6-1.4 3.6-3.6S51.4 25 49.2 25H46l1-7h3.1C56.9 18 61 22 61 28.4S56.9 39 50.1 39H47v-7Z" fill="#f8fafc" opacity="0.92"/>
+</svg>
